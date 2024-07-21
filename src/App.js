@@ -1,3 +1,4 @@
+import Calculator from './Calculator';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import HydraInfo from './HydraInfo';
@@ -93,11 +94,16 @@ const Section = styled.section`
     }
 `;
 
+
 const App = () => {
     const [animationStep, setAnimationStep] = useState(0);
     const [isVideoVisible, setIsVideoVisible] = useState(false);
+    const [videoSrc, setVideoSrc] = useState('');
 
     useEffect(() => {
+        const randomVideo = Math.random() < 0.5 ? '/video.mp4' : '/video-2.mp4';
+        setVideoSrc(randomVideo);
+
         const handleAnimation = async () => {
             await new Promise(resolve => setTimeout(resolve, 250));
             setIsVideoVisible(true);
@@ -114,7 +120,7 @@ const App = () => {
         <div>
             <Container>
                 <Video visible={isVideoVisible.toString()} autoPlay loop muted>
-                    <source src="/video.mp4" type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                 </Video>
                 <TitleContainer>
                     {animationStep === 0 && (
@@ -157,11 +163,14 @@ const App = () => {
                     )}
                 </TitleContainer>
             </Container>
+
+            <Section>
+                <Calculator></Calculator>
+                <FarmingInfo />
+            </Section>
+
             <Section>
                 <HydraInfo />
-            </Section>
-            <Section>
-                <FarmingInfo />
             </Section>
             <Footer />
         </div>

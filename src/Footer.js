@@ -13,10 +13,6 @@ const FooterContainer = styled.footer`
     }
 `;
 
-const FooterText = styled.p`
-  margin: 0.5rem 0;
-`;
-
 const FooterLink = styled.a`
   color: #00ff00;
   text-decoration: none;
@@ -35,7 +31,7 @@ const FooterLink = styled.a`
 const Footer = () => {
     return (
         <FooterContainer>
-            <FooterText>Официальный канал токена $HYDRA</FooterText>
+            <FooterLink href="https://t.me/Ton_HYDRA_Community" target="_blank" rel="noopener noreferrer">Официальный канал токена $HYDRA</FooterLink>
             <FooterLink href="https://t.me/farmizen" target="_blank" rel="noopener noreferrer">Утилити — @farmizen</FooterLink>
             <FooterLink href="https://t.me/Hydra_Radar" target="_blank" rel="noopener noreferrer">Мониторинг — @Hydra_Radar</FooterLink>
             <FooterLink href="https://t.me/+24j6_NYbMy5lYTEy" target="_blank" rel="noopener noreferrer">Форум — t.me/+24j6_NYbMy5lYTEy</FooterLink>
